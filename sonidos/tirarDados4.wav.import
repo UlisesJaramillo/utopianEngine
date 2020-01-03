@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/tirarDados4.wav-af6bfe3453db6a1a76f34273c81c045b.sample"
+
+[deps]
+
+source_file="res://sonidos/tirarDados4.wav"
+dest_files=[ "res://.import/tirarDados4.wav-af6bfe3453db6a1a76f34273c81c045b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/activacion.wav-b466e9eb807c0f8e22b8f2a9225b5dd3.sample"
+
+[deps]
+
+source_file="res://sonidos/activacion.wav"
+dest_files=[ "res://.import/activacion.wav-b466e9eb807c0f8e22b8f2a9225b5dd3.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

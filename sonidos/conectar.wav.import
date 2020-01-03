@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/conectar.wav-08ec3e1de3b3fed9c2d867d5b3602afd.sample"
+
+[deps]
+
+source_file="res://sonidos/conectar.wav"
+dest_files=[ "res://.import/conectar.wav-08ec3e1de3b3fed9c2d867d5b3602afd.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
