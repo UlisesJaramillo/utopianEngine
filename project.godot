@@ -17,10 +17,16 @@ _global_script_class_icons={
 
 config/name="New Game Project"
 run/main_scene="res://Node2D.tscn"
+run/low_processor_mode=true
 config/icon="res://icon.png"
+
+[debug]
+
+settings/fps/force_fps=60
 
 [display]
 
+window/size/borderless=true
 window/size/fullscreen=true
 window/vsync/use_vsync=false
 
@@ -107,6 +113,13 @@ eventos={
  ]
 }
 
+[physics]
+
+2d/thread_model=2
+
 [rendering]
 
+quality/filters/anisotropic_filter_level=1
+quality/subsurface_scattering/quality=0
+quality/voxel_cone_tracing/high_quality=false
 environment/default_environment="res://default_env.tres"

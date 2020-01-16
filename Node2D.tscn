@@ -99,15 +99,17 @@ limit_top = 1000
 limit_right = 7500
 limit_bottom = 5500
 limit_smoothed = true
+drag_margin_left = 0.0
+drag_margin_top = 0.0
+drag_margin_right = 0.0
+drag_margin_bottom = 0.0
 script = ExtResource( 6 )
 __meta__ = {
 "_edit_lock_": true
 }
-zoomspeed = 20.0
-
-[node name="Tween" type="Tween" parent="Camera2D"]
 
 [node name="posiciones" type="Node2D" parent="Camera2D"]
+editor/display_folded = true
 position = Vector2( -757.407, -506.96 )
 __meta__ = {
 "_edit_group_": true,
@@ -237,6 +239,8 @@ position = Vector2( 2270.66, 840.777 )
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="Tween" type="Tween" parent="Camera2D"]
 
 [node name="fondo" type="Sprite" parent="."]
 editor/display_folded = true
@@ -5618,6 +5622,7 @@ scale = Vector2( 0.0479988, 0.0467918 )
 texture = ExtResource( 14 )
 
 [node name="marcas" type="Node2D" parent="."]
+editor/display_folded = true
 script = ExtResource( 20 )
 __meta__ = {
 "_edit_lock_": true
@@ -6498,6 +6503,7 @@ scale = Vector2( 0.114548, 0.114548 )
 texture = ExtResource( 23 )
 
 [node name="basura" type="Node2D" parent="marcas"]
+editor/display_folded = true
 
 [node name="basura" type="Sprite" parent="marcas/basura"]
 visible = false
@@ -7173,7 +7179,7 @@ margin_left = 74.7967
 margin_top = 177.61
 margin_right = 158.797
 margin_bottom = 197.61
-text = "Item 0"
+text = "easy"
 items = [ "easy", null, false, 1, null, "normal", null, false, 0, null ]
 selected = 0
 
@@ -7233,7 +7239,7 @@ The game is free to use, open source and
 feel free to make any changes
 That you think is convenient. Atte Ulises
 
-V 1.0"
+V 1.0.1"
 
 [node name="AcceptDialog2" type="AcceptDialog" parent="Control/CanvasLayer"]
 margin_left = 388.0

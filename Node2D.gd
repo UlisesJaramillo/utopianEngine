@@ -92,12 +92,12 @@ var lenteDeAdivinacion=false
 var lenteEnZona=false#variable para saber si esta activado y ademas estas explorando en la zona
 var selloDeEquilibrio=false
 #############################################################variables de los tesoros legendarios encontrados
-var placaDeHielo
-var brazaleteDeIos
-var lazoLunaResplandeciente
-var escamaDeSerpienteInfinita
-var esquirlaFundida
-var pergaminoAnsestral
+var placaDeHielo=false
+var brazaleteDeIos=false
+var lazoLunaResplandeciente=false
+var escamaDeSerpienteInfinita=false
+var esquirlaFundida=false
+var pergaminoAnsestral=false
 #####################################################
 var restaExploracion=false
 var buena=false
@@ -123,6 +123,7 @@ var aux=0#contador para los dados
 var dadoActual1Const=0
 var dadoActual2Const=0
 var constructo=false
+
 func _ready():
 	pass # Replace with function body.
 
@@ -718,14 +719,14 @@ func ponerNumero(nodo):
 				buena=false#variable local que sirve para saber si se puede restar hasta 10 en la busqueda
 				var resta#variable loca, sirve para calcular el valor maximo del slider
 				lenteEnZona=false
-				buena=buenaFortuna(nodo)
+				buena=bFortuna(nodo)
 				dadoDisponible=true
 				if (lenteDeAdivinacion and nodo.get_node("../..").get_name() == "zona3" )or (lenteDeAdivinacion and nodo.get_node("../..").get_name() == "zona4"):
 					lenteEnZona=true
 				if (espejoHermetico and nodo.get_node("../..").get_name() == "zona1" )or (espejoHermetico and nodo.get_node("../..").get_name() == "zona6"):
 					espejoHermeticoEnZona=true
 				if lenteEnZona or espejoHermeticoEnZona:
-					if resultado>0:
+					if resultado>1:#en caso de que el resultado sea 1 evita el calculo de los carteles, porque no es necesario hacer calculo alguno
 						if resultado>10:
 							resta=10
 						else:
@@ -740,7 +741,7 @@ func ponerNumero(nodo):
 				else:
 					if buena:
 						#preguntar si se quiere restar hasta 10
-						if resultado>0:
+						if resultado>1:
 							if resultado>10:
 								resta=10
 							else:
@@ -754,7 +755,7 @@ func ponerNumero(nodo):
 						if bastonRadiestatico:
 							#preguntar si se quiere restar hasta 100
 							print("baston radiestatico")
-							if resultado>0:
+							if resultado>1:
 								if resultado>100:
 									resta=100
 								else:
@@ -769,7 +770,7 @@ func ponerNumero(nodo):
 							finalizaTirarDado(nodo)
 				#finalizar 
 	pass
-func buenaFortuna(nodo):
+func bFortuna(nodo):
 	var buena
 	if buenaFortuna==1 and nodo.get_node("../..").get_name() == "zona1":
 		buena=true
@@ -3537,9 +3538,9 @@ func resetNum():
 	pass
 func resetTodasVariables():
 	segOpAux=false
-	zonaActual#variable que me permite tener en cuenta la zona que estoy explorando, que al cambiar resetea la exploracion
-	areaActual
-	zonaCombate
+	zonaActual=null
+	areaActual=null
+	zonaCombate=null
 	nivelCombate=0
 	esEspiritu=false
 	atkMin=0
@@ -3616,12 +3617,12 @@ func resetTodasVariables():
 	lenteEnZona=false#variable para saber si esta activado y ademas estas explorando en la zona
 	selloDeEquilibrio=false
 	#############################################################variables de los tesoros legendarios encontrados
-	placaDeHielo
-	brazaleteDeIos
-	lazoLunaResplandeciente
-	escamaDeSerpienteInfinita
-	esquirlaFundida
-	pergaminoAnsestral
+	placaDeHielo=false
+	brazaleteDeIos=false
+	lazoLunaResplandeciente=false
+	escamaDeSerpienteInfinita=false
+	esquirlaFundida=false
+	pergaminoAnsestral=false
 	#####################################################
 	restaExploracion=false
 	buena=false
@@ -3905,9 +3906,11 @@ func verificarPuntosGolpe():
 			puntosDeGolpe=0
 			mostrarPuntosDeGolpe()
 			if !compuertaAlVacio:
+# warning-ignore:unused_variable
 				for i in range(6):
 					avanzarTiempo()
 			else:
+# warning-ignore:unused_variable
 				for i in range(4):
 					avanzarTiempo()
 		elif puntosDeGolpe>6:
@@ -3968,6 +3971,7 @@ func resetMarcas(node):#metodo recursivo para recorer cada hoja del arbol y apli
 			 # Do something
 			N.hide()
 			print("- "+N.get_name())
+# warning-ignore:unused_argument
 func _process(delta):
 	$Control/CanvasLayer/restarNumero/Panel/numero.set_text(str($Control/CanvasLayer/restarNumero/Panel/HSliderCien.get_value()))
 	$Control/CanvasLayer/restarNumero2/Panel/numero.set_text(str($Control/CanvasLayer/restarNumero2/Panel/HSliderDiez.get_value()))
@@ -3986,9 +3990,8 @@ func _process(delta):
 	if $Control/CanvasLayer/bateriaDeCristal/Panel/CheckBox3.is_pressed():
 		$Control/CanvasLayer/bateriaDeCristal/Panel/CheckBox2.pressed=false
 		$Control/CanvasLayer/bateriaDeCristal/Panel/CheckBox.pressed=false
-	
 	pass
-	
+
 func habilitarRestaExploracionCien(res,resta):
 	#metodo que sirve para habilitar la resta que se hace a el resultado de la exploracion, luego de eso
 	#nuevamente se resuelve la busqueda con un nuevo resultado
